@@ -60,9 +60,9 @@ switch_interrupt_handler()
 
   char p2val = switch_update_interrupt_sense();
 
-  switch_state_down = (p2val & SW1) ? 0 : 1; /* when SW0 is up */
+  switch_state_down = (p2val & SW0) ? 0 : 1; /* when SW0 is up */
 
-  switch_state_down1 = (p2val & SW0) ? 0 : 1; /* when SW1 is up */
+  switch_state_down1 = (p2val & SW1) ? 0 : 1; /* when SW1 is up */
 
   switch_state_down2 = (p2val & SW2) ? 0 : 1; /* when SW2 is up */
 

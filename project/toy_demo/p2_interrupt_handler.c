@@ -9,7 +9,7 @@ __interrupt_vec(PORT2_VECTOR) Port_1(){
 
   if (P2IFG & SWITCHES){               /* did a button cause this interrupt */
 
-    P2IFG &= ~SWITCHES;                /* clear peding sw interrupts */
+    P2IFG &= ~SWITCHES;                /* clear pending sw interrupts */
 
     switch_interrupt_handler();  /* single handler for all switches */
 
