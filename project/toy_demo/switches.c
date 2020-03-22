@@ -4,7 +4,7 @@
 #include "buzzer.h"
 
 
-char switch_state_down, switch_state_down1, switch_state_changed, switch_state_down2, switch_state_down3;
+char switch_state_down, switch_state_down1, switch_state_changed, switch_state_down2, switch_state_down3, action;
 
 unsigned char count_on;
 
@@ -69,4 +69,29 @@ switch_interrupt_handler()
   switch_state_down3 = (p2val & SW3) ? 0 : 1; /* when SW3 is up */
 
   switch_state_changed = 1;
+  
+
+if(switch_state_down){
+  /*Brightens led*/
+  action = 1;
+ }
+
+if(switch_state_down1){
+  /*Dims led*/
+  action = 2;
+ }
+
+if(switch_state_down2){
+  /*Plays a little ringtone*/
+  action = 3;
+ }
+
+if(switch_state_down3){
+  /* Shuts down all actions */
+  buzzer_set_period(0);
+  led_changed = 0;
+  led_update();
+  
+ }
+ 
 }
