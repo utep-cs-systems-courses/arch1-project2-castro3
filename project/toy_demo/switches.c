@@ -72,12 +72,12 @@ switch_interrupt_handler()
   
 
 if(switch_state_down){
-  /*Brightens led*/
+  /*Turn led*/
   action = 1;
  }
 
 if(switch_state_down1){
-  /*Dims led*/
+  /*Blinks led*/
   action = 2;
  }
 
@@ -89,9 +89,6 @@ if(switch_state_down2){
 if(switch_state_down3){
   /* Shuts down all actions */
   buzzer_set_period(0);
-  led_changed = 0;
-  led_update();
-  
  }
  
 }
