@@ -39,10 +39,18 @@ void led_update(){
 
     led_changed = 0;
      
-  }else if(led_changed == 1){
-    ledFlags |= 0;
-    P1OUT &= (0x00^LEDS) | ledFlags;
-    P1OUT |= ledFlags;
+  }
+  if (led_changed && switch_state_down2) {
+
+    ledFlags = redVal[red_on];
+
+
+    P1OUT &= (0xff^LEDS) | ledFlags; // clear bit for off leds
+
+    P1OUT |= ledFlags;     // set bit for on leds
+
+    led_changed = 0;
+
   }
 
   switch_state_changed = 0;

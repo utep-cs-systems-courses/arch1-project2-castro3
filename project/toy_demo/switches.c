@@ -5,7 +5,7 @@
 #include "turn_off.h"
 
 
-char switch_state_down, switch_state_down1, switch_state_changed, switch_state_down2, switch_state_down3, action;
+char switch_state_down, switch_state_down1, switch_state_changed, switch_state_down2, switch_state_down3;
 
 
 static char
@@ -69,14 +69,10 @@ switch_interrupt_handler()
   switch_state_changed = 1;
   
 
-if(switch_state_down){
-  /*Turn led*/
-  action = 1;
- }
-
 if(switch_state_down2){
   /*Blinks led*/
-  action = 2;
+  led_changed = 1;
+  led_update();
  }
 
 if(switch_state_down3){

@@ -150,6 +150,11 @@ void state_advance()/* alternate between toggling red & green */
   else if(switch_state_down1){
     song();
   }
+  else if(switch_state_down2){
+    changed = toggle_red();
+    led_changed = changed;
+    led_update();
+  }
 
   led_changed = changed;
 
