@@ -7,9 +7,6 @@
 
 char switch_state_down, switch_state_down1, switch_state_changed, switch_state_down2, switch_state_down3, action;
 
-unsigned char count_on;
-
-
 
 static char
 
