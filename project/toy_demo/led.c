@@ -26,7 +26,7 @@ void led_update(){
 
   char ledFlags = 0;
   
-  if (switch_state_changed & action == 1) {
+  if (switch_state_changed) {
 
 
     ledFlags |= switch_state_down ? LED_RED: 0;
@@ -39,6 +39,10 @@ void led_update(){
 
     led_changed = 0;
      
+  }else if(led_changed == 1){
+    ledFlags |= 0;
+    P1OUT &= (0x00^LEDS) | ledFlags;
+    P1OUT |= ledFlags;
   }
 
   switch_state_changed = 0;

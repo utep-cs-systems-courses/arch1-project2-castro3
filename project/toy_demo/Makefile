@@ -24,7 +24,7 @@ all: button.elf
 
 #additonal rules for files
 
-button.elf: ${COMMON_OBJECTS} p2_interrupt_handler.o led.o switches.o stateMachines.o wdInterruptHandler.o buzzer.o toyMain.o ../lib/libTimer.a
+button.elf: ${COMMON_OBJECTS} p2_interrupt_handler.o led.o switches.o stateMachines.o wdInterruptHandler.o buzzer.o toyMain.o turn_off.o ../lib/libTimer.a
 
 	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^
 

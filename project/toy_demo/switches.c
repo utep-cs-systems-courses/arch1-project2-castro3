@@ -2,6 +2,7 @@
 #include "switches.h"
 #include "led.h"
 #include "buzzer.h"
+#include "turn_off.h"
 
 
 char switch_state_down, switch_state_down1, switch_state_changed, switch_state_down2, switch_state_down3, action;
@@ -76,19 +77,14 @@ if(switch_state_down){
   action = 1;
  }
 
-if(switch_state_down1){
+if(switch_state_down2){
   /*Blinks led*/
   action = 2;
  }
 
-if(switch_state_down2){
-  /*Plays a little ringtone*/
-  action = 3;
- }
-
 if(switch_state_down3){
-  /* Shuts down all actions */
-  buzzer_set_period(0);
+  /* Shuts down all leds */
+  off_leds();
  }
  
 }
